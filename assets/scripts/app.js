@@ -141,9 +141,20 @@ function healPlayerHandler(){
 
 function printLogHandler(){
   console.log(battleLog);
+  const log = document.getElementById("log-section");
+  for(let i=0; i < battleLog.length; i++){
+    log.innerHTML += `<div>
+    <p><strong>Event: </strong>${battleLog[i].event}</p>
+    <p><strong>FinalMonsterHealth: </strong>${battleLog[i].finalMonsterHealth}</p>
+    <p><strong>FinalPlayerHealth: </strong>${battleLog[i].finalPlayerHealth}</p>
+    <p><strong>Target: </strong>${battleLog[i].target}</p>
+    <p><strong>Value: </strong>${battleLog[i].value}</p>
+    </div>`
+  }
 }
 
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
 logBtn.addEventListener('click', printLogHandler);
+
